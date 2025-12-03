@@ -1,44 +1,85 @@
 # Scripts para Adobe Illustrator
-Dos scripts en `.jsx` para automatizar tareas habituales en documentos con múltiples mesas de trabajo: generar índices y aplicar numeración consistente.
+Dos scripts en `.jsx` para automatizar tareas en documentos con múltiples mesas de trabajo: numeración coherente y creación de índices basados en secciones.
 
 ---
 
-## 📄 Scripts incluidos
+## 📄 1. Numerar_paginas-color_personalizado.jsx
+Numera automáticamente todas las mesas de trabajo usando un **TextFrame plantilla** para mantener posición, estilo y coherencia tipográfica.
 
-### **1. Generar_indice.jsx**
-Crea un índice automático a partir de mesas de trabajo cuyo nombre contenga `@sec:`.  
-- Extrae el título después del tag.  
-- Ignora `#oscuro` si está presente.  
-- Escribe el índice en el `TextFrame` seleccionado.
+### ✔ Requisitos previos
+1. Crea un TextFrame con el estilo del número de página.  
+2. Colócalo en la posición exacta donde quieras que aparezca en todas las páginas.  
+3. Selecciona ese TextFrame antes de ejecutar el script.
 
-### **2. Numerar_paginas-color_personalizado.jsx**
-Numera todas las mesas de trabajo usando la posición y estilo tipográfico de un `TextFrame` plantilla.  
-- Detecta `#oscuro` para aplicar un color distinto.  
-- Pregunta colores para fondos claros y oscuros.  
-- Numera automáticamente cada artboard.
+### ✔ El tag `#oscuro`
+Añade `#oscuro` al nombre de una mesa de trabajo para indicar que su fondo es oscuro.  
+El script aplicará automáticamente un color claro para la numeración:
+
+Ejemplos:
+- `Portada` → fondo claro → número oscuro  
+- `Ficha técnica #oscuro` → fondo oscuro → número claro  
+- `Capítulo @sec: Introducción #oscuro` → funciona igual
+
+### ✔ Qué hace el script
+- Pregunta dos colores:  
+  - **Color para números sobre fondo claro**  
+  - **Color para números sobre fondo oscuro**  
+- Detecta en qué artboard está la plantilla.  
+- Duplica el número en el resto de mesas de trabajo manteniendo:  
+  - Posición exacta  
+  - Tipografía y estilo  
+  - Orden correlativo  
+  - Color adecuado según `#oscuro`
 
 ---
 
-## 🛠 Uso rápido
+## 📄 2. Generar_indice.jsx
+Genera un índice automáticamente a partir del nombre de las mesas de trabajo que definan una sección.
+
+### ✔ Cómo deben nombrarse las mesas de trabajo
+Incluye el tag **`@sec:`** para marcar una sección.
+
+Ejemplos:
+- `@sec: Introducción`  
+- `Página 04 @sec: Resultados`  
+- `Resumen @sec: Datos clave #oscuro`
+
+> Nota: El tag **`#oscuro`** no afecta al índice; simplemente se ignora al extraer el título.
+
+### ✔ Cómo usar el script
+1. Selecciona un **TextFrame vacío** donde quieras que se genere el índice.  
+2. Ejecuta el script desde:  
+   **Archivo → Secuencias de comandos → Otros secuencias de comandos…**  
+3. Detectará todas las mesas de trabajo con `@sec:` y generará líneas como:  
+   `Título de sección · Nº`
+
+El número corresponde al **índice real del artboard** (empezando desde 0).
+
+---
+
+## 🛠 Instalación rápida (usar al instante)
 1. Descarga los `.jsx`.  
-2. En Illustrator: **Archivo → Secuencias de comandos → Otros secuencias de comandos…**  
-3. Selecciona el script y sigue las instrucciones.
+2. En Illustrator:  
+   **Archivo → Secuencias de comandos → Otros secuencias de comandos…**  
+3. Selecciona el script deseado.
 
 ---
 
-## 📌 Instalación opcional (para acceso directo)
-Si quieres que los scripts aparezcan en el menú sin ir a “Otros…”:
+## 📌 Instalación recomendada (acceso directo en el menú)
+Copia los scripts en la carpeta de comandos de Illustrator:
 
-1. Copia los archivos `.jsx` en la carpeta de Illustrator:  
-   **Windows:**  
-   `C:\Program Files\Adobe\Adobe Illustrator\Presets\es_ES\Scripts`  
-   **macOS:**  
-   `/Applications/Adobe Illustrator/Presets/es_ES/Scripts`  
+### Windows  
+`C:\Program Files\Adobe\Adobe Illustrator\Presets\es_ES\Scripts`
 
-2. Reinicia Illustrator.  
-3. Los verás en: **Archivo → Secuencias de comandos**.
+### macOS  
+`/Applications/Adobe Illustrator/Presets/es_ES/Scripts`
+
+➡️ *Reinicia Illustrator*  
+Ahora aparecerán en:  
+**Archivo → Secuencias de comandos**
 
 ---
 
 ## 📬 Contacto
-Para mejoras o sugerencias, abre un Issue o un Pull Request.
+Para sugerencias o mejoras, abre un Issue o Pull Request.
+
