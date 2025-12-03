@@ -4,12 +4,12 @@ Dos scripts en `.jsx` para automatizar tareas en documentos con múltiples mesas
 ---
 
 ## 📄 1. Numerar_paginas-color_personalizado.jsx
-Numera automáticamente todas las mesas de trabajo usando un **TextFrame plantilla** para mantener posición, estilo y coherencia tipográfica.
+Numera automáticamente todas las mesas de trabajo usando un **Cuadro de Texto plantilla** para mantener posición, estilo y coherencia tipográfica.
 
 ### ✔ Requisitos previos
-1. Crea un TextFrame con el estilo del número de página.  
+1. Crea un Cuadro de Texto con el estilo del número de página.  
 2. Colócalo en la posición exacta donde quieras que aparezca en todas las páginas.  
-3. Selecciona ese TextFrame antes de ejecutar el script.
+3. Selecciona ese Cuadro de Texto antes de ejecutar el script.
 
 ### ✔ El tag `#oscuro`
 Añade `#oscuro` al nombre de una mesa de trabajo para indicar que su fondo es oscuro.  
@@ -47,7 +47,7 @@ Ejemplos:
 > Nota: El tag **`#oscuro`** no afecta al índice; simplemente se ignora al extraer el título.
 
 ### ✔ Cómo usar el script
-1. Selecciona un **TextFrame vacío** donde quieras que se genere el índice.  
+1. Selecciona un **Cuadro de Texto vacío** donde quieras que se genere el índice.  
 2. Ejecuta el script desde:  
    **Archivo → Secuencias de comandos → Otros secuencias de comandos…**  
 3. Detectará todas las mesas de trabajo con `@sec:` y generará líneas como:  
