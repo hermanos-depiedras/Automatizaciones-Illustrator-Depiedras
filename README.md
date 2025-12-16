@@ -1,85 +1,131 @@
-# Scripts para Adobe Illustrator
-Dos scripts en `.jsx` para automatizar tareas en documentos con múltiples mesas de trabajo: numeración coherente y creación de índices basados en secciones.
+# Truquitos de Adobe Illustrator  
+Automatizaciones para numerar páginas, generar índices automáticos y crear pies de página sincronizados.
+
+Aquí tienes los **scripts descargables**, **un archivo de ejemplo en Illustrator** y **un 3º truco extra explicado paso a paso**.
+
+---
+
+## 🧭 Si nunca has usado GitHub (importante)
+
+- Solo tienes que ir a el botón **Code** en verde.
+- Ahí pulsa en **descargar archivo .zip**.
+
+👉 La instalación se explica **al final del documento**, pero puedes volver cuando lo necesites.
 
 ---
 
 ## 📄 1. Numerar_paginas-color_personalizado.jsx
-Numera automáticamente todas las mesas de trabajo usando un **Cuadro de Texto plantilla** para mantener posición, estilo y coherencia tipográfica.
+Script para numerar automáticamente todas las mesas de trabajo usando un **cuadro de texto plantilla**, manteniendo posición y tipografía.
 
-### ✔ Requisitos previos
-1. Crea un Cuadro de Texto con el estilo del número de página.  
-2. Colócalo en la posición exacta donde quieras que aparezca en todas las páginas.  
-3. Selecciona ese Cuadro de Texto antes de ejecutar el script.
+### ✔ Preparación previa
+1. Crea un **cuadro de texto** con el número de página.
+2. Ajusta su tipografía, tamaño, color y posición.
+3. Colócalo en una mesa de trabajo.
+4. **Selecciona ese cuadro de texto** antes de ejecutar el script.
+
+Ese cuadro actuará como **plantilla** para el resto de páginas.
 
 ### ✔ El tag `#oscuro`
-Añade `#oscuro` al nombre de una mesa de trabajo para indicar que su fondo es oscuro.  
-El script aplicará automáticamente un color claro para la numeración:
+Si una mesa de trabajo tiene fondo oscuro, añade `#oscuro` en su nombre.
 
 Ejemplos:
 - `Portada` → fondo claro → número oscuro  
 - `Ficha técnica #oscuro` → fondo oscuro → número claro  
-- `Capítulo @sec: Introducción #oscuro` → funciona igual
+
+El script detecta automáticamente este tag y aplica el color correcto.
 
 ### ✔ Qué hace el script
-- Pregunta dos colores:  
-  - **Color para números sobre fondo claro**  
-  - **Color para números sobre fondo oscuro**  
-- Detecta en qué artboard está la plantilla.  
-- Duplica el número en el resto de mesas de trabajo manteniendo:  
-  - Posición exacta  
-  - Tipografía y estilo  
-  - Orden correlativo  
-  - Color adecuado según `#oscuro`
+Al ejecutarlo:
+- Te pedirá:
+  - Un color para números sobre fondo claro.
+  - Un color para números sobre fondo oscuro.
+- Detectará en qué mesa de trabajo está la plantilla.
+- Copiará el número en todas las demás mesas de trabajo manteniendo:
+  - La misma posición.
+  - El mismo estilo tipográfico.
+  - Numeración correlativa.
+  - El color adecuado según `#oscuro`.
 
 ---
 
-## 📄 2. Generar_indice.jsx
-Genera un índice automáticamente a partir del nombre de las mesas de trabajo que definan una sección.
+## 📄 2. Generar_indice_automatico.jsx
+Script que genera un índice automáticamente a partir del nombre de las mesas de trabajo.
 
-### ✔ Cómo deben nombrarse las mesas de trabajo
-Incluye el tag **`@sec:`** para marcar una sección.
+### ✔ Cómo nombrar las mesas de trabajo
+Usa **`@sec:`** para indicar que una mesa de trabajo define una sección.
 
-Ejemplos:
-- `@sec: Introducción`  
-- `Página 04 @sec: Resultados`  
+Ejemplos válidos:
+- `@sec: Introducción`
+- `Página 04 @sec: Resultados`
 - `Resumen @sec: Datos clave #oscuro`
 
-> Nota: El tag **`#oscuro`** no afecta al índice; simplemente se ignora al extraer el título.
+> El tag `#oscuro` se ignora para el índice; solo se usa para la numeración.
 
 ### ✔ Cómo usar el script
-1. Selecciona un **Cuadro de Texto vacío** donde quieras que se genere el índice.  
-2. Ejecuta el script desde:  
-   **Archivo → Secuencias de comandos → Otros secuencias de comandos…**  
-3. Detectará todas las mesas de trabajo con `@sec:` y generará líneas como:  
+1. Crea y selecciona un **cuadro de texto vacío** donde quieras que aparezca el índice.
+2. Ejecuta el script.
+3. El índice se genera automáticamente con el formato:
+   
    `Título de sección · Nº`
 
-El número corresponde al **índice real del artboard** (empezando desde 0).
+El número de página corresponde al **número real de la mesa de trabajo**.
 
 ---
 
-## 🛠 Instalación rápida (usar al instante)
-1. Descarga los `.jsx`.  
-2. En Illustrator:  
-   **Archivo → Secuencias de comandos → Otros secuencias de comandos…**  
-3. Selecciona el script deseado.
+## 📄 3. Truco extra: pie de página automático con Símbolos (sin scripts)
+Este tercer recurso no es un archivo descargable, sino un **método nativo de Illustrator**.
+
+### ✔ Qué permite
+Crear un texto que:
+- Aparece en varias mesas de trabajo.
+- **Se actualiza en todas a la vez** cuando editas uno solo.
+- Es ideal para pies de página, textos legales, fechas o títulos repetidos.
+
+### ✔ Cómo hacerlo paso a paso
+1. Crea un **cuadro de texto** con el contenido del pie de página.
+2. Abre la ventana **Símbolos**.
+3. Arrastra el cuadro de texto a la ventana de Símbolos.
+4. Confirma cuando Illustrator te lo pida.
+5. Ahora puedes arrastrar ese símbolo a cualquier mesa de trabajo.
+
+➡️ Si editas uno de ellos, **se actualizan todos automáticamente**.
+
+### ⚠️ Importante
+- Si necesitas el mismo texto en **colores distintos**, debes crear **varios símbolos**, uno por color.
+- Un único símbolo no permite variaciones de color independientes.
 
 ---
 
-## 📌 Instalación recomendada (acceso directo en el menú)
-Copia los scripts en la carpeta de comandos de Illustrator:
+## 📦 Archivo Illustrator de ejemplo
+El repositorio incluye un **archivo de Illustrator** con:
+- La plantilla usada en el vídeo.
+- Los nombres correctos de mesas de trabajo.
+- Ejemplos reales de `@sec:` y `#oscuro`.
+- La numeración y el índice ya aplicados.
 
-### Windows  
-`C:\Program Files\Adobe\Adobe Illustrator\Presets\es_ES\Scripts`
+Sirve como referencia directa para entender cómo está todo estructurado.
 
-### macOS  
-`/Applications/Adobe Illustrator/Presets/es_ES/Scripts`
+---
 
-➡️ *Reinicia Illustrator*  
-Ahora aparecerán en:  
+## 🛠 Instalación de los scripts (recomendado)
+Para que los scripts aparezcan directamente en el menú de Illustrator:
+
+### Windows
+Copia los archivos `.jsx` en:
+C:\Archivos de programa\Adobe\Adobe Illustrator 2025\Presets\es_ES\Secuencias de comandos
+
+### macOS
+Copia los archivos `.jsx` en:
+/Aplicaciones/Adobe Illustrator 2025/Presets/es_ES/Secuencias de comandos
+
+*(Sustituye “2025” por tu versión si es distinta)*
+
+➡️ Reinicia Illustrator.  
+Luego los encontrarás en:
 **Archivo → Secuencias de comandos**
 
 ---
 
 ## 📬 Contacto
-Para sugerencias o mejoras, abre un Issue o Pull Request.
+Si tienes sugerencias, dudas o mejoras, puedes abrir un Issue o un Pull Request.
 
