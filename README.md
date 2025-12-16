@@ -8,7 +8,7 @@ Aquí tienes los **scripts descargables**, **un archivo de ejemplo en Illustrato
 ## 🧭 Si nunca has usado GitHub (importante)
 
 - Solo tienes que ir a el botón **Code** en verde.
-- Ahí pulsa en **descargar archivo .zip**.
+- Ahí pulsa en **descargar ZIP**.
 
 👉 La instalación se explica **al final del documento**, pero puedes volver cuando lo necesites.
 
