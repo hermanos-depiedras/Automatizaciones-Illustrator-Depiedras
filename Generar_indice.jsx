@@ -59,7 +59,7 @@ if (app.documents.length === 0) {
             if (!titulo.length) continue;
 
             // Número de página = índice REAL del artboard (sin +1)
-            var pagina = i;
+            var pagina =  i + 1;
 
             secciones.push({
                 titulo: titulo,
